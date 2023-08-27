@@ -51,6 +51,11 @@ with open(found_csprojs[0], encoding="utf-8") as f:
     MOD_DLL = MOD_BIN / DLL_NAME
     MOD_PATH = MODS_ROOT / MOD_ID
 
+# check dll has unique name
+if DLL_NAME.lower() == "examplemod.dll":
+    print("Did you forget to rename the DLL in the project settings?")
+    exit(1);
+
 # copy dll
 MOD_PATH.mkdir(exist_ok=True)
 shutil.copyfile(MOD_DLL, MOD_PATH / f"{DLL_NAME}")
