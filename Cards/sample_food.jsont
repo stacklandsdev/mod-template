@@ -1,0 +1,12 @@
+{
+  "id": "witchery_mushroom_soup",
+  "nameTerm": "witchery_mushroom_soup",
+  "descriptionTerm": "witchery_mushroom_soup_description",
+  "icon": "mushroom_soup.png",
+  "value": 6,
+  "type": "Food",
+  "script": "Food",
+  "_CanSpoil": false,
+  "_FoodValue": 5,
+  "_IsCookedFood": true
+}
