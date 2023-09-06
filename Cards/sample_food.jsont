@@ -1,8 +1,8 @@
 {
-  "id": "witchery_mushroom_soup",
-  "nameTerm": "witchery_mushroom_soup",
-  "descriptionTerm": "witchery_mushroom_soup_description",
-  "icon": "mushroom_soup.png",
+  "id": "[mod]_[name]",
+  "nameTerm": "[mod]_[name]",
+  "descriptionTerm": "[mod]_[name]_description",
+  "icon": "[name].png",
   "value": 6,
   "type": "Food",
   "script": "Food",
