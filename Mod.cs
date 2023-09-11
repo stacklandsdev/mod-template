@@ -9,6 +9,7 @@ namespace ExampleModNS
     {
         public static ExampleMod instance;
         public static void Log(string msg) => instance.Logger.Log(msg);
+        public static void LogError(string msg) => instance.Logger.LogError(msg);
         private void Awake()
         {
             instance = this;
