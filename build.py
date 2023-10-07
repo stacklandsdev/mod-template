@@ -8,7 +8,7 @@ import json
 
 # ----- CONFIGURE THESE -----
 SYNC_FOLDERS = ["Blueprints", "Boosterpacks", "Cards", "Icons", "Sounds"] # folders to be synced, such as Cards, Blueprints, Icons, etc.
-COPY_FILES = ["manifest.json", "localization.tsv"] # individual files to copy, such as manifest.json, localization.tsv, etc. (the mod dll is copied automatically)
+COPY_FILES = ["manifest.json", "localization.tsv", "workfile.txt", "icon.png"] # individual files to copy, such as manifest.json, localization.tsv, etc. (the mod dll is copied automatically)
 MODS_ROOT = Path(os.environ["userprofile"]) / Path("AppData/LocalLow/sokpop/Stacklands/Mods") # windows only, can be hardcoded with the below line instead
 # MODS_ROOT = Path("C:/Users/cyber/AppData/LocalLow/sokpop/Stacklands/Mods").resolve()
 
@@ -38,7 +38,7 @@ stdout, stderr = p.communicate()
 if p.returncode != 0:
     print(stdout.decode())
     exit(p.returncode)
-print(f"built in {time.time() - start_time:.2f}s")
+print(f"build started {time.strftime('%H:%I:%S', time.localtime(start_time))}, finished in {time.time() - start_time:.2f}s")
 
 # grab metadata
 found_csprojs = list(Path(".").glob("*.csproj"))
