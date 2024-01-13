@@ -1,3 +1,4 @@
+from genericpath import isfile
 import os
 import shutil
 import subprocess
@@ -9,7 +10,7 @@ import json
 # ----- CONFIGURE THESE -----
 COMMON = ["CommonNS.tsv"]
 SYNC_FOLDERS = ["Blueprints", "Boosterpacks", "Cards", "Icons", "Sounds"] # folders to be synced, such as Cards, Blueprints, Icons, etc.
-COPY_FILES = ["manifest.json", "*.tsv", "workshop.txt", "icon.png"] # individual files to copy, such as manifest.json, localization.tsv, etc. (the mod dll is copied automatically)
+COPY_FILES = ["manifest.json", "*.tsv", "../stacklands-commonmod/*.tsv", "workshop.txt", "icon.png"] # individual files to copy, such as manifest.json, localization.tsv, etc. (the mod dll is copied automatically)
 MODS_ROOT = Path(os.environ["userprofile"]) / Path("AppData/LocalLow/sokpop/Stacklands/Mods") # windows only, can be hardcoded with the below line instead
 # MODS_ROOT = Path("C:/Users/cyber/AppData/LocalLow/sokpop/Stacklands/Mods").resolve()
 
@@ -78,3 +79,9 @@ for file in COMMON:
 print("syncing folders..")
 for folder in SYNC_FOLDERS:
     sync_folder(Path(folder), MOD_PATH / folder)
+
+# run bb.cmd
+if os.path.isfile("README.md"):
+    if not os.path.isfile("README.bbcode") or os.path.getmtime('README.md') > os.path.getmtime('README.bbcode'):
+        print("Updating bbcode file")
+        subprocess.call("..\MarkdownToSteam.exe -i README.md -o README.bbcode")
