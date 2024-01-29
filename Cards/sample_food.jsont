@@ -1,0 +1,12 @@
+{
+  "id": "[mod]_[name]",
+  "nameTerm": "[mod]_[name]",
+  "descriptionTerm": "[mod]_[name]_description",
+  "icon": "[name].png",
+  "value": 6,
+  "type": "Food",
+  "script": "Food",
+  "_CanSpoil": false,
+  "_FoodValue": 5,
+  "_IsCookedFood": true
+}
